@@ -1,0 +1,13 @@
+version: "2"
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
+    ports:
+      - "27017:27017"
+    network_mode: "host"
+    environment:
+         MONGO_INITDB_ROOT_USERNAME: test
+         MONGO_INITDB_ROOT_PASSWORD: test
+         MONGO_INITDB_DATABASE: Articles
